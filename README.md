@@ -1,4 +1,4 @@
-#Data Integration Platform
+# Data Integration Platform
 
 A production-ready data platform that centralizes operational, financial, and project data into a single source of truth.  
 Built using **Laravel, Supabase (PostgreSQL), Prefect, Python**, and external APIs to power dashboards, reporting, and business integrations.
