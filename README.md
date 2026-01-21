@@ -1,145 +1,151 @@
-A production-ready data platform that centralizes operational, financial, and project data into a single source of truth.
-Built using Laravel, Supabase (PostgreSQL), Prefect, Python, and external APIs to power dashboards, reporting, and business integrations.
+#Data Integration Platform
 
-This system is designed for data accuracy, auditability, and scalability, supporting executive reporting, KPI tracking, and profitability analysis.
+A production-ready data platform that centralizes operational, financial, and project data into a single source of truth.  
+Built using **Laravel, Supabase (PostgreSQL), Prefect, Python**, and external APIs to power dashboards, reporting, and business integrations.
 
-⸻
+This system is designed for **data accuracy, auditability, and scalability**, supporting executive reporting, KPI tracking, and profitability analysis.
 
-Table of Contents
-	•	Overview
-	•	Architecture
-	•	Tech Stack
-	•	Core Features
-	•	ETL Pipelines
-	•	Dashboards
-	•	Integrations
-	•	Local Development
+---
 
-⸻
+## Table of Contents
 
-Overview
+- Overview  
+- Architecture  
+- Tech Stack  
+- Core Features  
+- ETL Pipelines  
+- Dashboards  
+- Integrations  
+- Local Development  
+
+---
+
+## Overview
 
 The ABC Data Platform aggregates data from multiple business systems into a unified, reliable data layer used for:
-	•	Executive dashboards
-	•	Pipeline and profitability tracking
-	•	Contract and invoice reporting
-	•	KPI monitoring
-	•	User-specific analytics views
+
+- Executive dashboards  
+- Pipeline and profitability tracking  
+- Contract and invoice reporting  
+- KPI monitoring  
+- User-specific analytics views  
 
 The platform enables teams to make faster, data-driven decisions with clean, validated, and auditable data.
 
-⸻
+---
 
-Architecture
+## Architecture
 
-External Systems
-(Google Sheets, Fieldwire, QuickBooks, APIs)
-↓
-ETL / Sync Layer (Prefect + Python)
-↓
-Supabase (PostgreSQL)
-↓
-Laravel Application
-↓
-Dashboards & Admin UI
+External Systems  
+(Google Sheets, Fieldwire, QuickBooks, APIs)  
+↓  
+ETL / Sync Layer (Prefect + Python)  
+↓  
+Supabase (PostgreSQL)  
+↓  
+Laravel Application  
+↓  
+Dashboards & Admin UI  
 
-⸻
+---
 
-Tech Stack
+## Tech Stack
 
-Backend & Data
-	•	Laravel (PHP)
-	•	Supabase (PostgreSQL)
-	•	Prefect (ETL orchestration)
-	•	Python (ETL & integrations)
+### Backend & Data
+- Laravel (PHP)  
+- Supabase (PostgreSQL)  
+- Prefect (ETL orchestration)  
+- Python (ETL & integrations)  
 
-Frontend
-	•	Blade Templates
-	•	DataTables
-	•	Chart.js / ApexCharts
-	•	Select2 / Flatpickr
+### Frontend
+- Blade Templates  
+- DataTables  
+- Chart.js / ApexCharts  
+- Select2 / Flatpickr  
 
-Integrations
-	•	Google Sheets API
-	•	Fieldwire API
-	•	Supabase REST API
+### Integrations
+- Google Sheets API  
+- Fieldwire API  
+- Supabase REST API  
 
-⸻
+---
 
-Core Features
-	•	Contract master data management
-	•	Pipeline tracking
-	•	Profitability analysis
-	•	KPI dashboard customization (per user)
-	•	Rate management
-	•	User & access management
-	•	Webhook-based task updates
-	•	Role-based dashboard access
-	•	Audit-friendly data snapshots
+## Core Features
 
-⸻
+- Contract master data management  
+- Pipeline tracking  
+- Profitability analysis  
+- KPI dashboard customization (per user)  
+- Rate management  
+- User & access management  
+- Webhook-based task updates  
+- Role-based dashboard access  
+- Audit-friendly data snapshots  
 
-ETL Pipelines
+---
 
-Contracts Sync
+## ETL Pipelines
 
-Flow Name: contracts-sync
-Source: Google Sheets (PLPA Master → Contracts tab)
-Target: Supabase table contract
+### Contracts Sync
 
-Behavior:
-	•	Full refresh
-	•	Preserves manual records (is_custom = 1)
-	•	Batch inserts via Supabase REST API
-	•	Optional CSV snapshot for auditing
+**Flow Name:** `contracts-sync`  
+**Source:** Google Sheets (PLPA Master → Contracts tab)  
+**Target:** Supabase table `contract`
 
-Transformations:
-	•	Header normalization
-	•	Data validation & cleaning
-	•	Numeric type coercion
-	•	UTC timestamp normalization
+**Behavior:**
+- Full refresh  
+- Preserves manual records (`is_custom = 1`)  
+- Batch inserts via Supabase REST API  
+- Optional CSV snapshot for auditing  
 
-ETL scripts are located under /etl.
+**Transformations:**
+- Header normalization  
+- Data validation & cleaning  
+- Numeric type coercion  
+- UTC timestamp normalization  
 
-⸻
+ETL scripts are located under `/etl`.
 
-Dashboards
+---
 
-Available Dashboards
-	•	Pipeline
-	•	Profitability
-	•	Rates
-	•	Users
-	•	KPI Library
+## Dashboards
 
-KPI Customization
-	•	User-specific KPI selection
-	•	Layouts stored in kpi_layouts
-	•	Persisted per dashboard tab
-	•	Drag-and-drop KPI management
+### Available Dashboards
 
-⸻
+- Pipeline  
+- Profitability  
+- Rates  
+- Users  
+- KPI Library  
 
-Integrations
+### KPI Customization
 
-Google Sheets
-	•	OAuth authentication
-	•	Primary source for contract master data
+- User-specific KPI selection  
+- Layouts stored in `kpi_layouts`  
+- Persisted per dashboard tab  
+- Drag-and-drop KPI management  
 
-Fieldwire
-	•	Webhook-based task updates
-	•	Task → Contract linkage
-	•	Status & completion tracking
+---
 
-Why This Project Matters
+## Integrations
 
-This platform demonstrates:
-	•	Real-world data engineering workflows
-	•	ETL orchestration with Prefect
-	•	API-based data ingestion
-	•	Scalable data modeling
-	•	Business-focused dashboards
-	•	Audit-friendly pipelines
-	•	Production-grade system design
+### Google Sheets
+- OAuth authentication  
+- Primary source for contract master data  
 
-It is built to reflect how modern data teams operate in production environments.
+### Fieldwire
+- Webhook-based task updates  
+- Task → Contract linkage  
+- Status & completion tracking  
+
+---
+
+## Local Development
+
+### Prerequisites
+
+- PHP 8.x  
+- Composer  
+- Node.js  
+- Python 3.10+  
+- Supabase project access  
